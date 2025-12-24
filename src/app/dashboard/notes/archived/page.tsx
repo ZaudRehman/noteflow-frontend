@@ -8,15 +8,11 @@ import { LoadingState } from '@/components/shared/LoadingState';
 
 export default function ArchivedPage() {
   const { notes, isLoading, fetchNotes, toggleFavorite, toggleArchive, deleteNote } = useNotes();
-  const [archivedNotes, setArchivedNotes] = useState<Note[]>([]);
+  const archivedNotes = notes.filter((note) => note.is_archived);
 
   useEffect(() => {
     fetchNotes();
   }, [fetchNotes]);
-
-  useEffect(() => {
-    setArchivedNotes(notes.filter((note) => note.is_archived));
-  }, [notes]);
 
   if (isLoading) {
     return <LoadingState message="Loading archived notes..." />;

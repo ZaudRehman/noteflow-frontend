@@ -19,7 +19,7 @@ export interface NoteListResponse {
   limit: number;
 }
 
-export interface NoteResponse extends Note {}
+export type NoteResponse = Note;
 
 // Tag responses
 export interface TagListResponse {

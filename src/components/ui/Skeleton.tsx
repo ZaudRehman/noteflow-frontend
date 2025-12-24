@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils/cn';
 
-interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {}
+type SkeletonProps = HTMLAttributes<HTMLDivElement>;
 
 export function Skeleton({ className, ...props }: SkeletonProps) {
   return (
@@ -22,7 +22,7 @@ export function SkeletonText({ lines = 3 }: { lines?: number }) {
         <Skeleton
           key={i}
           className="h-4"
-          style={{ width: `${Math.random() * 30 + 70}%` }}
+          style={{ width: `${((i * 7) % 31) + 65}%` }}
         />
       ))}
     </div>

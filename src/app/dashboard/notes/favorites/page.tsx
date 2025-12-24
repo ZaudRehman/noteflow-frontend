@@ -9,15 +9,11 @@ import { CreateNoteButton } from '@/components/notes/CreateNoteButton';
 
 export default function FavoritesPage() {
   const { notes, isLoading, fetchNotes, toggleFavorite, toggleArchive, deleteNote } = useNotes();
-  const [favoriteNotes, setFavoriteNotes] = useState<Note[]>([]);
+  const favoriteNotes = notes.filter((note) => note.is_favorited);
 
   useEffect(() => {
     fetchNotes();
   }, [fetchNotes]);
-
-  useEffect(() => {
-    setFavoriteNotes(notes.filter((note) => note.is_favorited));
-  }, [notes]);
 
   if (isLoading) {
     return <LoadingState message="Loading favorites..." />;

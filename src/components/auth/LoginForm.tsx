@@ -34,13 +34,13 @@ export function LoginForm() {
     try {
       await login(values.email, values.password);
       showToast('Login successful!', 'success');
-      window.location.href = ROUTES.DASHBOARD;
+      router.push(ROUTES.DASHBOARD);
     } catch (error: any) {
       console.error('Login error:', error);
       showToast(
         error?.response?.data?.message ||
-          error?.message ||
-          'Login failed. Please try again.',
+        error?.message ||
+        'Login failed. Please try again.',
         'error'
       );
     }

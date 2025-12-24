@@ -12,7 +12,9 @@ export function Scratchpad() {
     // Load from localStorage on mount
     useEffect(() => {
         const saved = localStorage.getItem('noteflow_scratchpad');
-        if (saved) setContent(saved);
+        if (saved) {
+            setTimeout(() => setContent(saved), 0);
+        }
     }, []);
 
     // Save to localStorage when content changes

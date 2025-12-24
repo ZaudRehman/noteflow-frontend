@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Plus, Star, FileText, Archive, TrendingUp } from 'lucide-react';
 import type { Note } from '@/lib/types/models';
@@ -25,25 +25,17 @@ export default function DashboardPage() {
     deleteNote,
   } = useNotes();
 
-  const [recentNotes, setRecentNotes] = useState<Note[]>([]);
+  const recentNotes = [...notes]
+    .sort(
+      (a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+    )
+    .slice(0, 6);
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  }, [fetchNotes]);
 
-  useEffect(() => {
-    if (notes.length > 0) {
-      const sorted = [...notes]
-        .sort(
-          (a, b) =>
-            new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-        )
-        .slice(0, 6);
-      setRecentNotes(sorted);
-    }
-  }, [notes]);
-
-  const stats = [
+  const stats = useMemo(() => [
     {
       icon: FileText,
       label: 'Total Notes',
@@ -72,17 +64,15 @@ export default function DashboardPage() {
       }).length,
       color: 'text-pastel-sky',
     },
-  ];
+  ], [notes]);
 
   // Time-based greeting
-  const getGreeting = () => {
+  const greeting = useMemo(() => {
     const hour = new Date().getHours();
     if (hour < 12) return 'Good morning';
     if (hour < 18) return 'Good afternoon';
     return 'Good evening';
-  };
-
-  const greeting = getGreeting();
+  }, []);
 
   if (isLoading) {
     return <LoadingState message="Loading your dashboard..." />;

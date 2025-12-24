@@ -5,6 +5,7 @@ import { Switch } from '@/components/ui/Switch';
 import { Button } from '@/components/ui/Button';
 import { Dropdown, DropdownItem } from '@/components/ui/Dropdown';
 import { useAuthStore } from '@/lib/stores/authStore';
+import type { UpdatePreferencesRequest } from '@/lib/types/api';
 
 interface PreferencesFormValues {
   theme: string;
@@ -14,7 +15,7 @@ interface PreferencesFormValues {
 }
 
 interface PreferencesFormProps {
-  onSubmit: (values: Partial<PreferencesFormValues>) => Promise<void>;
+  onSubmit: (values: UpdatePreferencesRequest) => Promise<void>;
 }
 
 export function PreferencesForm({ onSubmit }: PreferencesFormProps) {
@@ -61,11 +62,10 @@ export function PreferencesForm({ onSubmit }: PreferencesFormProps) {
           <button
             type="button"
             onClick={() => setValue('theme', 'dark')}
-            className={`flex-1 p-4 rounded-xl border-2 transition-all ${
-              theme === 'dark'
+            className={`flex-1 p-4 rounded-xl border-2 transition-all ${theme === 'dark'
                 ? 'border-pastel-lavender bg-pastel-lavender/10'
                 : 'border-dark-border bg-dark-surface hover:border-dark-border/50'
-            }`}
+              }`}
           >
             <div className="text-sm font-sans-medium text-gray-100">Dark</div>
             <div className="text-xs text-gray-500 mt-1">
@@ -75,11 +75,10 @@ export function PreferencesForm({ onSubmit }: PreferencesFormProps) {
           <button
             type="button"
             onClick={() => setValue('theme', 'light')}
-            className={`flex-1 p-4 rounded-xl border-2 transition-all ${
-              theme === 'light'
+            className={`flex-1 p-4 rounded-xl border-2 transition-all ${theme === 'light'
                 ? 'border-pastel-lavender bg-pastel-lavender/10'
                 : 'border-dark-border bg-dark-surface hover:border-dark-border/50'
-            }`}
+              }`}
           >
             <div className="text-sm font-sans-medium text-gray-100">Light</div>
             <div className="text-xs text-gray-500 mt-1">
@@ -126,11 +125,10 @@ export function PreferencesForm({ onSubmit }: PreferencesFormProps) {
               key={mode}
               type="button"
               onClick={() => setValue('preview_mode', mode as any)}
-              className={`p-3 rounded-xl border-2 transition-all capitalize ${
-                previewMode === mode
+              className={`p-3 rounded-xl border-2 transition-all capitalize ${previewMode === mode
                   ? 'border-pastel-lavender bg-pastel-lavender/10'
                   : 'border-dark-border bg-dark-surface hover:border-dark-border/50'
-              }`}
+                }`}
             >
               <div className="text-xs font-sans-medium text-gray-100">
                 {mode}

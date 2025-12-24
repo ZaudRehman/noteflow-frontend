@@ -11,7 +11,7 @@ import { LoadingState } from '@/components/shared/LoadingState';
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
-  
+
   const {
     query,
     setQuery,
@@ -24,10 +24,12 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (initialQuery) {
-      setQuery(initialQuery);
-      search(initialQuery);
+      setTimeout(() => {
+        setQuery(initialQuery);
+        search(initialQuery);
+      }, 0);
     }
-  }, [initialQuery]);
+  }, [initialQuery, setQuery, search]);
 
   useEffect(() => {
     if (query.trim()) {

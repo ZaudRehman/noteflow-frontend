@@ -13,6 +13,12 @@ export const tagsAPI = {
     return response.data;
   },
 
+  // GET /api/v1/tags/:id
+  get: async (id: string): Promise<Tag> => {
+    const response = await api.get<Tag>(`/tags/${id}`);
+    return response.data;
+  },
+
   // POST /api/v1/tags
   create: async (data: CreateTagRequest): Promise<Tag> => {
     const response = await api.post<Tag>('/tags', data);

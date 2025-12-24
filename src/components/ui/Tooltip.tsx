@@ -4,7 +4,7 @@ import { ReactNode, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 interface TooltipProps {
-  content: string;
+  content: ReactNode;
   children: ReactNode;
   position?: 'top' | 'bottom' | 'left' | 'right';
 }

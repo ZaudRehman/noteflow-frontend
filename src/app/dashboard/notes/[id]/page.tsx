@@ -43,7 +43,7 @@ export default function NoteDetailPage() {
 
       // Only update if different to avoid cycles
       if (JSON.stringify(tagIds.sort()) !== JSON.stringify(selectedTags.sort())) {
-        setSelectedTags(tagIds);
+        setTimeout(() => setSelectedTags(tagIds), 0);
       }
     }
   }, [note, tags]);

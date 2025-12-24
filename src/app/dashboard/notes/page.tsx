@@ -23,39 +23,28 @@ export default function NotesPage() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState<'created' | 'updated' | 'title'>('updated');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-  const [filteredNotes, setFilteredNotes] = useState<Note[]>([]);
   const [deletingNote, setDeletingNote] = useState<Note | null>(null);
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
-
-  useEffect(() => {
-    let filtered = notes.filter((note) => !note.is_archived);
-
-    // Sort notes
-    filtered.sort((a, b) => {
+  const filteredNotes = [...notes]
+    .filter((note) => !note.is_archived)
+    .sort((a, b) => {
       let comparison = 0;
-
       switch (sortBy) {
         case 'created':
-          comparison =
-            new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+          comparison = new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
           break;
         case 'updated':
-          comparison =
-            new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime();
+          comparison = new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime();
           break;
         case 'title':
           comparison = a.title.localeCompare(b.title);
           break;
       }
-
       return sortOrder === 'asc' ? comparison : -comparison;
     });
 
-    setFilteredNotes(filtered);
-  }, [notes, sortBy, sortOrder]);
+  useEffect(() => {
+    fetchNotes();
+  }, [fetchNotes]);
 
   const handleSortChange = (
     newSortBy: 'created' | 'updated' | 'title',

@@ -21,8 +21,8 @@ export function AuthGuard({ children }: AuthGuardProps) {
     if (!isAuthenticated) {
       const redirectUrl = `${ROUTES.LOGIN}?redirect=${encodeURIComponent(pathname)}`;
       router.replace(redirectUrl);
-    } else {
-      setIsChecking(false);
+    } else if (isChecking) {
+      setTimeout(() => setIsChecking(false), 0);
     }
   }, [isAuthenticated, router, pathname]);
 

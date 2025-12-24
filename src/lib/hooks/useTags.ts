@@ -54,9 +54,9 @@ export function useTags() {
     }
   }, [addTag, addToast]);
 
-  const updateTagData = useCallback(async (id: string, name: string) => {
+  const updateTagData = useCallback(async (id: string, data: { name: string }) => {
     try {
-      const tag = await tagsAPI.update(id, { name });
+      const tag = await tagsAPI.update(id, data);
       updateTag(id, tag);
       addToast('Tag updated', 'success');
     } catch (error: any) {

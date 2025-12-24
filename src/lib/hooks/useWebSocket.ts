@@ -32,6 +32,7 @@ export function useWebSocket(noteId: string): UseWebSocketReturn {
   const reconnectTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const reconnectAttemptsRef = useRef(0);
   const heartbeatIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const connectRef = useRef<() => void>(() => { });
 
   // Calculate exponential backoff delay
   const getReconnectDelay = useCallback(() => {
@@ -205,7 +206,7 @@ export function useWebSocket(noteId: string): UseWebSocketReturn {
 
           reconnectTimeoutRef.current = setTimeout(() => {
             reconnectAttemptsRef.current += 1;
-            connect();
+            connectRef.current();
           }, delay);
         } else if (reconnectAttemptsRef.current >= MAX_RECONNECT_ATTEMPTS) {
           console.error('Max reconnection attempts reached');
@@ -221,7 +222,12 @@ export function useWebSocket(noteId: string): UseWebSocketReturn {
   // Manual reconnect function
   const reconnect = useCallback(() => {
     reconnectAttemptsRef.current = 0;
-    connect();
+    connectRef.current();
+  }, []);
+
+  // Sync connect ref
+  useEffect(() => {
+    connectRef.current = connect;
   }, [connect]);
 
   // Initialize connection
