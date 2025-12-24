@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,6 +12,7 @@ import { useAuth } from '@/lib/hooks/useAuth';
 type ResetFormValues = z.infer<typeof resetPasswordSchema>;
 
 export function ResetPasswordForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token') || '';
   const { resetPassword } = useAuth();
@@ -28,6 +29,7 @@ export function ResetPasswordForm() {
   const onSubmit = async (values: ResetFormValues) => {
     try {
       await resetPassword(values.token, values.new_password);
+      router.push('/login');
     } catch (error) {
       // Error handled by useAuth hook (toast)
     }

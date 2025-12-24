@@ -6,7 +6,7 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) [![Zustand](https://img.shields.io/badge/Zustand-5.0-443E38?style=for-the-badge&logo=react)](https://github.com/pmndrs/zustand) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-[Live Demo](#) · [Backend Repository](https://github.com/ZaudRehman/noteflow-backend-v1) · [Report Bug](https://github.com/ZaudRehman/noteflow-backend-v1/issues) · [Request Feature](https://github.com/ZaudRehman/noteflow-backend-v1/issues)
+[Live Demo](https://noteflow-frontend-phi.vercel.app/) · [Backend Repository](https://github.com/ZaudRehman/noteflow-backend-v1) · [Report Bug](https://github.com/ZaudRehman/noteflow-backend-v1/issues) · [Request Feature](https://github.com/ZaudRehman/noteflow-backend-v1/issues)
 
 </div>
 
@@ -22,7 +22,6 @@
 - [Getting Started](#-getting-started)
 - [Design System](#-design-system)
 - [Contributing](#-contributing)
-- [Contact](#-contact)
 - [License](#-license)
 
 ---

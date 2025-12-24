@@ -14,7 +14,7 @@ export function CTA() {
           Ready to transform your note-taking?
         </h2>
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          Join thousands of teams already using Noteflow. Free forever for personal use.
+          Your thoughts, organized beautifully. Free forever for personal use.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

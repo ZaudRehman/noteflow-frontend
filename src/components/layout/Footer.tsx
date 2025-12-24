@@ -19,29 +19,29 @@ export function Footer() {
             </p>
             <div className="flex space-x-3">
               <a
-                href="https://github.com/yourusername/noteflow"
+                href="https://github.com/ZaudRehman/noteflow-frontend"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors"
+                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors group"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5 text-gray-400" />
+                <Github className="w-5 h-5 text-gray-400 group-hover:text-pastel-lavender" />
               </a>
               <a
-                href="https://twitter.com/noteflow"
+                href="https://x.com/RehmanZaud"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors"
+                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors group"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5 text-gray-400" />
+                <Twitter className="w-5 h-5 text-gray-400 group-hover:text-pastel-lavender" />
               </a>
               <a
-                href="mailto:hello@noteflow.app"
-                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors"
+                href="mailto:zaudrehman@gmail.com"
+                className="p-2 bg-dark-elevated rounded-lg hover:bg-dark-border transition-colors group"
                 aria-label="Email"
               >
-                <Mail className="w-5 h-5 text-gray-400" />
+                <Mail className="w-5 h-5 text-gray-400 group-hover:text-pastel-lavender" />
               </a>
             </div>
           </div>
@@ -49,7 +49,7 @@ export function Footer() {
           {/* Product Links */}
           <div>
             <h3 className="text-sm font-sans-semibold text-gray-200 uppercase tracking-wide mb-4">
-              Product
+              Project
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
@@ -61,29 +61,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/dashboard/notes"
-                  className="text-gray-400 hover:text-pastel-lavender transition-colors"
-                >
-                  Notes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/dashboard/tags"
-                  className="text-gray-400 hover:text-pastel-lavender transition-colors"
-                >
-                  Tags
-                </Link>
-              </li>
-              <li>
                 <a
-                  href="https://github.com/yourusername/noteflow"
+                  href="https://github.com/ZaudRehman/noteflow-frontend"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-pastel-lavender transition-colors"
                 >
-                  GitHub
+                  Frontend Core
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/ZaudRehman/noteflow-backend-v1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-pastel-lavender transition-colors"
+                >
+                  Backend API
                 </a>
               </li>
             </ul>
@@ -96,28 +90,28 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/privacy"
                   className="text-gray-400 hover:text-pastel-lavender transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/terms"
                   className="text-gray-400 hover:text-pastel-lavender transition-colors"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/cookies"
                   className="text-gray-400 hover:text-pastel-lavender transition-colors"
                 >
                   Cookie Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,9 +119,21 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-dark-border flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 space-y-4 md:space-y-0">
-          <p>
-            © {currentYear} {APP_NAME}. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center md:gap-4">
+            <p>© {currentYear} {APP_NAME}. All rights reserved.</p>
+            <div className="hidden md:block w-px h-4 bg-dark-border" />
+            <p>
+              Created by{' '}
+              <a
+                href="https://github.com/ZaudRehman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pastel-lavender transition-colors font-sans-medium"
+              >
+                Zaud Rehman
+              </a>
+            </p>
+          </div>
           <p className="flex items-center space-x-1">
             <span>Built with</span>
             <span className="text-pastel-peach">♥</span>
