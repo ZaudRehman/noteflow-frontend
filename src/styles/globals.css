@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme colors */
+    --color-dark-bg: #1a1a1f;
+    --color-dark-surface: #25252d;
+    --color-dark-elevated: #2f2f38;
+    --color-dark-border: #3a3a44;
+
+    /* Pastel colors */
+    --color-pastel-lavender: #b8a4d4;
+    --color-pastel-mint: #a4d4c4;
+    --color-pastel-peach: #d4b8a4;
+    --color-pastel-sky: #a4c4d4;
+
+    /* Custom font families */
+    --font-geist-sans: 'Geist-Regular', sans-serif;
+    --font-geist-medium: 'Geist-Medium', sans-serif;
+    --font-geist-semibold: 'Geist-SemiBold', sans-serif;
+    --font-geist-mono: 'GeistMono-Regular', monospace;
+    --font-google-sans: 'GoogleSansFlex-Medium', sans-serif;
+    --font-google-sans-bold: 'GoogleSansFlex-SemiBold', sans-serif;
+    --font-line-seed: 'LineSeedSans-Regular', sans-serif;
+  }
+
+  /* Font-face declarations */
+  @font-face {
+    font-family: 'Geist-Regular';
+    src: url('/fonts/Geist-Regular.ttf') format('truetype');  /* Changed path */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geist-Medium';
+    src: url('/fonts/Geist-Medium.ttf') format('truetype');  /* Changed path */
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geist-SemiBold';
+    src: url('/fonts/Geist-SemiBold.ttf') format('truetype');  /* Changed path */
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'GeistMono-Regular';
+    src: url('/fonts/GeistMono-Regular.ttf') format('truetype');  /* Changed path */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'GoogleSansFlex-Medium';
+    src: url('/fonts/GoogleSansFlex-Medium.ttf') format('truetype');  /* Changed path */
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'GoogleSansFlex-SemiBold';
+    src: url('/fonts/GoogleSansFlex-SemiBold.ttf') format('truetype');  /* Changed path */
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'LineSeedSans-Regular';
+    src: url('/fonts/LineSeedSans-Regular.ttf') format('truetype');  /* Changed path */
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* REMOVED: * { @apply border-dark-border; } */
+
+  body {
+    @apply bg-dark-bg text-gray-100 font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-elevated rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-border;
+  }
+}
+
+@layer components {
+  /* Neumorphic shadows */
+  .shadow-neu-sm {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+      -4px -4px 8px rgba(255, 255, 255, 0.05);
+  }
+
+  .shadow-neu-md {
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.06);
+  }
+
+  .shadow-neu-lg {
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.07);
+  }
+
+  .shadow-neu-inset {
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Glow effects */
+  .drop-shadow-glow-lavender {
+    filter: drop-shadow(0 0 8px rgba(184, 164, 212, 0.4));
+  }
+
+  .drop-shadow-glow-mint {
+    filter: drop-shadow(0 0 8px rgba(164, 212, 196, 0.4));
+  }
+
+  .drop-shadow-glow-peach {
+    filter: drop-shadow(0 0 8px rgba(212, 184, 164, 0.4));
+  }
+
+  /* Scrollbar thin utility */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-dark-elevated) var(--color-dark-bg);
+  }
+
+  /* Safe area for mobile */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Markdown preview styles */
+  .markdown-preview {
+    @apply text-gray-300 leading-relaxed;
+  }
+
+  .markdown-preview h1 {
+    @apply text-3xl font-display-bold text-gray-100 mt-6 mb-4;
+  }
+
+  .markdown-preview h2 {
+    @apply text-2xl font-display-bold text-gray-100 mt-5 mb-3;
+  }
+
+  .markdown-preview h3 {
+    @apply text-xl font-sans-semibold text-gray-100 mt-4 mb-2;
+  }
+
+  .markdown-preview p {
+    @apply mb-4;
+  }
+
+  .markdown-preview ul,
+  .markdown-preview ol {
+    @apply mb-4 ml-6;
+  }
+
+  .markdown-preview ul {
+    @apply list-disc;
+  }
+
+  .markdown-preview ol {
+    @apply list-decimal;
+  }
+
+  .markdown-preview li {
+    @apply mb-2;
+  }
+
+  .markdown-preview a {
+    @apply text-pastel-lavender hover:text-pastel-mint underline transition-colors;
+  }
+
+  .markdown-preview code {
+    @apply bg-dark-elevated px-1.5 py-0.5 rounded text-sm font-mono text-pastel-mint;
+  }
+
+  .markdown-preview pre {
+    @apply bg-dark-elevated p-4 rounded-xl mb-4 overflow-x-auto;
+  }
+
+  .markdown-preview pre code {
+    @apply bg-transparent p-0 text-gray-300;
+  }
+
+  .markdown-preview blockquote {
+    @apply border-l-4 border-pastel-lavender pl-4 italic text-gray-400 mb-4;
+  }
+
+  .markdown-preview table {
+    @apply w-full mb-4 border-collapse;
+  }
+
+  .markdown-preview th,
+  .markdown-preview td {
+    @apply border border-dark-border px-4 py-2 text-left;
+  }
+
+  .markdown-preview th {
+    @apply bg-dark-elevated font-sans-semibold;
+  }
+
+  .markdown-preview img {
+    @apply rounded-lg my-4 max-w-full;
+  }
+
+  .markdown-preview hr {
+    @apply border-dark-border my-6;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-gradient-pastel {
+    @apply bg-gradient-to-r from-pastel-lavender via-pastel-mint to-pastel-peach bg-clip-text text-transparent;
+  }
+
+  /* Animation utilities */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-dark-surface;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}

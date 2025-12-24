@@ -1,0 +1,36 @@
+/* Neumorphic design utilities */
+.neu-button {
+  @apply bg-dark-surface rounded-xl shadow-neu-sm transition-all duration-200;
+  @apply hover:shadow-neu-md active:shadow-neu-inset;
+}
+
+.neu-card {
+  @apply bg-dark-surface rounded-2xl shadow-neu-md p-6;
+}
+
+.neu-input {
+  @apply bg-dark-bg rounded-xl shadow-neu-inset px-4 py-3;
+  @apply focus:shadow-neu-sm focus:outline-none focus:ring-2 focus:ring-pastel-lavender/30;
+  @apply transition-all duration-200;
+}
+
+.neu-surface {
+  @apply bg-dark-surface shadow-neu-sm rounded-xl;
+}
+
+.neu-elevated {
+  @apply bg-dark-elevated shadow-neu-lg rounded-2xl;
+}
+
+/* Glow effects for accents */
+.glow-lavender {
+  box-shadow: 0 0 20px rgba(184, 164, 212, 0.3);
+}
+
+.glow-mint {
+  box-shadow: 0 0 20px rgba(164, 212, 196, 0.3);
+}
+
+.glow-peach {
+  box-shadow: 0 0 20px rgba(212, 184, 164, 0.3);
+}
