@@ -35,7 +35,7 @@ NoteFlow is a modern collaborative note-taking application designed for speed, b
 NoteFlow bridges the gap between simple text editors and heavy-duty documentation tools:
 - **🚀 Real-Time Sync** - Collaborate with teammates instantly with live cursors and presence indicators.
 - **🧪 Academic Ready** - First-class support for LaTeX equations and GFM Markdown.
-- **✨ Glassmorphic UI** - A premium, dark-themed aesthetic that's easy on the eyes.
+- **✨ Neomorphic UI** - A premium, dark-themed aesthetic that's easy on the eyes.
 - **📱 Responsive & Fast** - Optimized for mobile and desktop with blazing-fast page transitions using Next.js App Router.
 
 ---
